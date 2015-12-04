@@ -106,6 +106,11 @@ extern NSString * const NYTPhotosViewControllerDidDismissNotification;
  */
 - (void)updateImageForPhoto:(id <NYTPhoto> _Nullable)photo;
 
+/**
+ *  Dismisses `NYTPhotosViewController`. Should only be used in cases where user interaction of a button in the captionView requires a different viewController to be modal.
+ */
+- (void)forceDismiss;
+
 @end
 
 /**
@@ -206,11 +211,6 @@ extern NSString * const NYTPhotosViewControllerDidDismissNotification;
  *  @param activityType         The activity type that was successfully shared.
  */
 - (void)photosViewController:(NYTPhotosViewController *)photosViewController actionCompletedWithActivityType:(NSString * _Nullable)activityType;
-
-/**
- *  Dismisses `NYTPhotosViewController`. Should only be used in cases where user interaction of a button in the captionView requires a different viewController to be modal.
- */
-- (void)forceDismiss;
 
 @end
 
