@@ -435,6 +435,11 @@ static const UIEdgeInsets NYTPhotosViewControllerCloseButtinImageInsets = {3, 0,
             CGFloat maximumZoomScale = [self.delegate photosViewController:self maximumZoomScaleForPhoto:photo];
             photoViewController.scalingImageView.maximumZoomScale = maximumZoomScale;
         }
+      
+      if([self.delegate respondsToSelector:@selector(photosViewController:mediaOverlayTypeForPhoto:atIndex:)]) {
+        NSUInteger mediaType = [self.delegate photosViewController:self mediaOverlayTypeForPhoto:photo atIndex:[self.dataSource indexOfPhoto:photo]];
+        [photoViewController.scalingImageView setMediaOverlayType:mediaType];
+      }
 
         return photoViewController;
     }

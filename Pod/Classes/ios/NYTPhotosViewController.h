@@ -120,6 +120,8 @@ extern NSString * const NYTPhotosViewControllerDidDismissNotification;
 
 @optional
 
+- (NSUInteger)photosViewController:(NYTPhotosViewController *)photosViewController mediaOverlayTypeForPhoto:(id <NYTPhoto>)photo atIndex:(NSUInteger)photoIndex;
+
 /**
  *  Called when the view is about to made visible.
  *

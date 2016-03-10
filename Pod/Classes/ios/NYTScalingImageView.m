@@ -67,6 +67,20 @@
     [self updateZoomScale];
 }
 
+- (void)setMediaOverlayType:(NSUInteger)type
+{
+  if (type == 0) {
+    self.mediaOverlayView.image = nil;
+    self.mediaOverlayView.hidden = YES;
+  } else if (type == 1) {
+    self.mediaOverlayView.image = [UIImage imageNamed:@"interactive-floorplan.png"];
+    self.mediaOverlayView.hidden = NO;
+  } else {
+    self.mediaOverlayView.image = [UIImage imageNamed:@"video-play-button.png"];
+    self.mediaOverlayView.hidden = NO;
+  }
+}
+
 #pragma mark - Setup
 
 - (void)setupMediaOverlayView
@@ -74,10 +88,6 @@
   UIImage *image = [UIImage imageNamed:@"interactive-floorplan.png"];
   self.mediaOverlayView = [[UIImageView alloc] initWithImage:image];
   self.mediaOverlayView.translatesAutoresizingMaskIntoConstraints = NO;
-
-//  CGFloat newX = (self.imageView.frame.size.width / 2) - (self.mediaOverlayView.frame.size.width / 2);
- // CGFloat newY = (self.imageView.frame.size.height / 2) - (self.mediaOverlayView.frame.size.height / 2);
-  //self.mediaOverlayView.frame = CGRectMake(newX, newY, self.mediaOverlayView.frame.size.width, self.mediaOverlayView.frame.size.height);
 
   [self addSubview:self.mediaOverlayView];
   NSLayoutConstraint *x = [NSLayoutConstraint constraintWithItem:self.mediaOverlayView

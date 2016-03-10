@@ -37,4 +37,7 @@
  */
 - (void)centerScrollViewContents;
 
+// NSUInteger because no time for including enum types from main project
+- (void)setMediaOverlayType:(NSUInteger)type;
+
 @end
