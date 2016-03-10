@@ -73,12 +73,28 @@
 {
   UIImage *image = [UIImage imageNamed:@"interactive-floorplan.png"];
   self.mediaOverlayView = [[UIImageView alloc] initWithImage:image];
+  self.mediaOverlayView.translatesAutoresizingMaskIntoConstraints = NO;
 
-  CGFloat newX = (self.imageView.frame.size.width / 2) - (self.mediaOverlayView.frame.size.width / 2);
-  CGFloat newY = (self.imageView.frame.size.height / 2) - (self.mediaOverlayView.frame.size.height / 2);
-  self.mediaOverlayView.frame = CGRectMake(newX, newY, self.mediaOverlayView.frame.size.width, self.mediaOverlayView.frame.size.height);
+//  CGFloat newX = (self.imageView.frame.size.width / 2) - (self.mediaOverlayView.frame.size.width / 2);
+ // CGFloat newY = (self.imageView.frame.size.height / 2) - (self.mediaOverlayView.frame.size.height / 2);
+  //self.mediaOverlayView.frame = CGRectMake(newX, newY, self.mediaOverlayView.frame.size.width, self.mediaOverlayView.frame.size.height);
 
   [self addSubview:self.mediaOverlayView];
+  NSLayoutConstraint *x = [NSLayoutConstraint constraintWithItem:self.mediaOverlayView
+                                                       attribute:NSLayoutAttributeCenterX
+                                                       relatedBy:NSLayoutRelationEqual
+                                                          toItem:self
+                                                       attribute:NSLayoutAttributeCenterX
+                                                      multiplier:1
+                                                        constant:0.0];
+  NSLayoutConstraint *y = [NSLayoutConstraint constraintWithItem:self.mediaOverlayView
+                                                       attribute:NSLayoutAttributeCenterY
+                                                       relatedBy:NSLayoutRelationEqual
+                                                          toItem:self
+                                                       attribute:NSLayoutAttributeCenterY
+                                                      multiplier:1
+                                                        constant:0.0];
+  [self addConstraints:@[x, y]];
 }
 
 - (void)setupInternalImageViewWithImage:(UIImage *)image {
