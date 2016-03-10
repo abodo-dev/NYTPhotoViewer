@@ -15,6 +15,7 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic) UIImageView *imageView;
+@property (nonatomic) UIImageView *mediaOverlayView;
 
 @end
 
@@ -61,11 +62,19 @@
 
 - (void)commonInitWithImage:(UIImage *)image {
     [self setupInternalImageViewWithImage:image];
+    [self setupMediaOverlayView];
     [self setupImageScrollView];
     [self updateZoomScale];
 }
 
 #pragma mark - Setup
+
+- (void)setupMediaOverlayView
+{
+  UIImage *image = [UIImage imageNamed:@"interactive-floorplan.png"];
+  self.mediaOverlayView = [[UIImageView alloc] initWithImage:image];
+  [self addSubView:self.mediaOverlayView];
+}
 
 - (void)setupInternalImageViewWithImage:(UIImage *)image {
     self.imageView = [[UIImageView alloc] initWithImage:image];
