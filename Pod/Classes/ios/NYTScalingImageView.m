@@ -83,14 +83,14 @@
   NSLayoutConstraint *x = [NSLayoutConstraint constraintWithItem:self.mediaOverlayView
                                                        attribute:NSLayoutAttributeCenterX
                                                        relatedBy:NSLayoutRelationEqual
-                                                          toItem:self
+                                                          toItem:self.imageView
                                                        attribute:NSLayoutAttributeCenterX
                                                       multiplier:1
                                                         constant:0.0];
   NSLayoutConstraint *y = [NSLayoutConstraint constraintWithItem:self.mediaOverlayView
                                                        attribute:NSLayoutAttributeCenterY
                                                        relatedBy:NSLayoutRelationEqual
-                                                          toItem:self
+                                                          toItem:self.imageView
                                                        attribute:NSLayoutAttributeCenterY
                                                       multiplier:1
                                                         constant:0.0];
