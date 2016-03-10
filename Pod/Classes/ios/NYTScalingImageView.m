@@ -74,6 +74,9 @@
   UIImage *image = [UIImage imageNamed:@"interactive-floorplan.png"];
   self.mediaOverlayView = [[UIImageView alloc] initWithImage:image];
   [self addSubview:self.mediaOverlayView];
+  CGFloat newX = (self.imageView.frame.size.width / 2) - (self.mediaOverlayView.frame.size.width / 2);
+  CGFloat newY = (self.imageView.frame.size.height / 2) - (self.mediaOverlayView.frame.size.height / 2);
+  self.mediaOverlayView.frame = CGRectMake(newX, newY, self.mediaOverlayView.frame.size.width, self.mediaOverlayView.frame.size.height);
 }
 
 - (void)setupInternalImageViewWithImage:(UIImage *)image {
