@@ -73,7 +73,7 @@
 {
   UIImage *image = [UIImage imageNamed:@"interactive-floorplan.png"];
   self.mediaOverlayView = [[UIImageView alloc] initWithImage:image];
-  [self addSubView:self.mediaOverlayView];
+  [self addSubview:self.mediaOverlayView];
 }
 
 - (void)setupInternalImageViewWithImage:(UIImage *)image {
