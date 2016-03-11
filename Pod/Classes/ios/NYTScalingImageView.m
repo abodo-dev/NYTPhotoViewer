@@ -72,11 +72,11 @@
   if (type == 0) {
     self.mediaOverlayView.image = nil;
     self.mediaOverlayView.hidden = YES;
-  } else if (type == 1) {
-    self.mediaOverlayView.image = [UIImage imageNamed:@"interactive-floorplan.png"];
-    self.mediaOverlayView.hidden = NO;
-  } else {
+  } else if (type == 2) {
     self.mediaOverlayView.image = [UIImage imageNamed:@"video-play-button.png"];
+    self.mediaOverlayView.hidden = NO;
+  } else if (type == 3) {
+    self.mediaOverlayView.image = [UIImage imageNamed:@"interactive-floorplan.png"];
     self.mediaOverlayView.hidden = NO;
   }
 }
