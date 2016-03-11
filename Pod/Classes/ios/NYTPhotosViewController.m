@@ -337,14 +337,14 @@ static const UIEdgeInsets NYTPhotosViewControllerCloseButtinImageInsets = {3, 0,
 
 - (void)didSingleTapWithGestureRecognizer:(UITapGestureRecognizer *)tapGestureRecognizer {
     if ([self.delegate respondsToSelector:@selector(photosViewController:mediaOverlayTypeForPhoto:atIndex:)]) {
-        //NSInteger index = [self.dataSource indexOfPhoto:self.currentlyDisplayedPhoto];
-        //NSUInteger mediaType = [self.delegate photosViewController:self
-                                          //mediaOverlayTypeForPhoto:self.currentlyDisplayedPhoto
-                                                           //atIndex:[self.dataSource indexOfPhoto:self.currentlyDisplayedPhoto]];
-        if ([self.delegate respondsToSelector:@selector(photosViewController:handleTapForPhoto:atIndex:withGestureRecognizer:)]) {
+        NSInteger index = [self.dataSource indexOfPhoto:self.currentlyDisplayedPhoto];
+        NSUInteger mediaType = [self.delegate photosViewController:self
+                                          mediaOverlayTypeForPhoto:self.currentlyDisplayedPhoto
+                                                           atIndex:index];
+        if (mediaType != 0 && [self.delegate respondsToSelector:@selector(photosViewController:handleTapForPhoto:atIndex:withGestureRecognizer:)]) {
           [self.delegate photosViewController:self
                             handleTapForPhoto:self.currentlyDisplayedPhoto
-                                      atIndex:[self.dataSource indexOfPhoto:self.currentlyDisplayedPhoto]
+                                      atIndex:index
                         withGestureRecognizer:tapGestureRecognizer];
         }
     }
